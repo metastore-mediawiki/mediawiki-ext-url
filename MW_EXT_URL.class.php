@@ -1,9 +1,12 @@
 <?php
 
+namespace MediaWiki\Extension\MW_EXT_URL;
+
+use OutputPage, Parser, Skin;
+
 /**
  * Class MW_EXT_URL
  * ------------------------------------------------------------------------------------------------------------------ */
-
 class MW_EXT_URL {
 
 	/**
@@ -40,7 +43,7 @@ class MW_EXT_URL {
 	 * @param Parser $parser
 	 *
 	 * @return bool
-	 * @throws MWException
+	 * @throws \MWException
 	 * -------------------------------------------------------------------------------------------------------------- */
 
 	public static function onParserFirstCallInit( Parser $parser ) {
@@ -139,7 +142,7 @@ class MW_EXT_URL {
 			default:
 				$parser->addTrackingCategory( 'mw-ext-url-error-category' );
 
-				return false;
+				return null;
 		}
 
 		// Out HTML.
@@ -164,7 +167,7 @@ class MW_EXT_URL {
 	 * -------------------------------------------------------------------------------------------------------------- */
 
 	public static function onBeforePageDisplay( OutputPage $out, Skin $skin ) {
-		$out->addModuleStyles( array( 'ext.mw.url.styles' ) );
+		$out->addModuleStyles( [ 'ext.mw.url.styles' ] );
 
 		return true;
 	}
