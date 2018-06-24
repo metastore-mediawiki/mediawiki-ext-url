@@ -3,25 +3,12 @@
 namespace MediaWiki\Extension\MW_EXT_URL;
 
 use OutputPage, Parser, Skin;
+use MediaWiki\Extension\MW_EXT_Core\MW_EXT_Core;
 
 /**
  * Class MW_EXT_URL
  * ------------------------------------------------------------------------------------------------------------------ */
 class MW_EXT_URL {
-
-	/**
-	 * Clear DATA (escape html).
-	 *
-	 * @param $string
-	 *
-	 * @return string
-	 * -------------------------------------------------------------------------------------------------------------- */
-
-	private static function clearData( $string ) {
-		$outString = htmlspecialchars( trim( $string ), ENT_QUOTES );
-
-		return $outString;
-	}
 
 	/**
 	 * * Clear URL.
@@ -65,13 +52,13 @@ class MW_EXT_URL {
 
 	public static function onRenderTagURL( Parser $parser, $type = '', $content = '', $title = '' ) {
 		// Argument: type.
-		$getType = self::clearData( $type ?? '' ?: '' );
+		$getType = MW_EXT_Core::outClear( $type ?? '' ?: '' );
 
 		// Argument: content.
-		$getContent = self::clearData( $content ?? '' ?: '' );
+		$getContent = MW_EXT_Core::outClear( $content ?? '' ?: '' );
 
 		// Argument: title.
-		$getTitle = self::clearData( $title ?? '' ?: '' );
+		$getTitle = MW_EXT_Core::outClear( $title ?? '' ?: '' );
 
 		// Build URL.
 		switch ( $getType ) {
