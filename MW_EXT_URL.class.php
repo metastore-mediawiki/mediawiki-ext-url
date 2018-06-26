@@ -34,7 +34,7 @@ class MW_EXT_URL {
 	 * -------------------------------------------------------------------------------------------------------------- */
 
 	public static function onParserFirstCallInit( Parser $parser ) {
-		$parser->setFunctionHook( 'url', __CLASS__ . '::onRenderTagURL' );
+		$parser->setFunctionHook( 'url', [ __CLASS__, 'onRenderTag' ] );
 
 		return true;
 	}
@@ -50,7 +50,7 @@ class MW_EXT_URL {
 	 * @return bool|string
 	 * -------------------------------------------------------------------------------------------------------------- */
 
-	public static function onRenderTagURL( Parser $parser, $type = '', $content = '', $title = '' ) {
+	public static function onRenderTag( Parser $parser, $type = '', $content = '', $title = '' ) {
 		// Argument: type.
 		$getType = MW_EXT_Core::outClear( $type ?? '' ?: '' );
 
