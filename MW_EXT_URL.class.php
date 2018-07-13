@@ -7,7 +7,7 @@ use MediaWiki\Extension\MW_EXT_Core\MW_EXT_Core;
 
 /**
  * Class MW_EXT_URL
- * ------------------------------------------------------------------------------------------------------------------ */
+ */
 class MW_EXT_URL {
 
 	/**
@@ -16,8 +16,7 @@ class MW_EXT_URL {
 	 * @param $string
 	 *
 	 * @return string
-	 * -------------------------------------------------------------------------------------------------------------- */
-
+	 */
 	private static function clearURL( $string ) {
 		$outString = rawurlencode( trim( $string ) );
 
@@ -31,8 +30,7 @@ class MW_EXT_URL {
 	 *
 	 * @return bool
 	 * @throws \MWException
-	 * -------------------------------------------------------------------------------------------------------------- */
-
+	 */
 	public static function onParserFirstCallInit( Parser $parser ) {
 		$parser->setFunctionHook( 'url', [ __CLASS__, 'onRenderTag' ] );
 
@@ -48,8 +46,7 @@ class MW_EXT_URL {
 	 * @param string $title
 	 *
 	 * @return bool|string
-	 * -------------------------------------------------------------------------------------------------------------- */
-
+	 */
 	public static function onRenderTag( Parser $parser, $type = '', $content = '', $title = '' ) {
 		// Argument: type.
 		$getType = MW_EXT_Core::outClear( $type ?? '' ?: '' );
@@ -151,8 +148,7 @@ class MW_EXT_URL {
 	 * @param Skin $skin
 	 *
 	 * @return bool
-	 * -------------------------------------------------------------------------------------------------------------- */
-
+	 */
 	public static function onBeforePageDisplay( OutputPage $out, Skin $skin ) {
 		$out->addModuleStyles( [ 'ext.mw.url.styles' ] );
 
