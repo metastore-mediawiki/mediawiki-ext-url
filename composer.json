@@ -26,7 +26,8 @@
 	},
 	"require": {
 		"php": ">=7.2",
-		"composer/installers": "~1.0"
+		"composer/installers": "~1.0",
+		"metastore-mediawiki/mediawiki-ext-core": "*"
 	},
 	"autoload": {
 		"classmap": [
