@@ -3,7 +3,7 @@
 namespace MediaWiki\Extension\MW_EXT_URL;
 
 use OutputPage, Parser, Skin;
-use MediaWiki\Extension\MW_EXT_Core\MW_EXT_Core;
+use MediaWiki\Extension\MW_EXT_Kernel\MW_EXT_Kernel;
 
 /**
  * Class MW_EXT_URL
@@ -49,13 +49,13 @@ class MW_EXT_URL {
 	 */
 	public static function onRenderTag( Parser $parser, $type = '', $content = '', $title = '' ) {
 		// Argument: type.
-		$getType = MW_EXT_Core::outClear( $type ?? '' ?: '' );
+		$getType = MW_EXT_Kernel::outClear( $type ?? '' ?: '' );
 
 		// Argument: content.
-		$getContent = MW_EXT_Core::outClear( $content ?? '' ?: '' );
+		$getContent = MW_EXT_Kernel::outClear( $content ?? '' ?: '' );
 
 		// Argument: title.
-		$getTitle = MW_EXT_Core::outClear( $title ?? '' ?: '' );
+		$getTitle = MW_EXT_Kernel::outClear( $title ?? '' ?: '' );
 
 		// Build URL.
 		switch ( $getType ) {

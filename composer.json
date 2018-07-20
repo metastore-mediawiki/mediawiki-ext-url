@@ -26,7 +26,7 @@
 	},
 	"require": {
 		"composer/installers": "~1.0",
-		"metastore/mediawiki-ext-core": "*"
+		"metastore/mediawiki-ext-kernel": "*"
 	},
 	"autoload": {
 		"classmap": [
