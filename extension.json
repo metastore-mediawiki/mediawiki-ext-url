@@ -17,14 +17,14 @@
 		}
 	},
 	"AutoloadClasses": {
-		"MediaWiki\\Extension\\METADATA\\MW_EXT_URL": "MW_EXT_URL.class.php"
+		"MediaWiki\\Extension\\MetaStore\\MW_EXT_URL": "MW_EXT_URL.class.php"
 	},
 	"Hooks": {
 		"ParserFirstCallInit": [
-			"MediaWiki\\Extension\\METADATA\\MW_EXT_URL::onParserFirstCallInit"
+			"MediaWiki\\Extension\\MetaStore\\MW_EXT_URL::onParserFirstCallInit"
 		],
 		"BeforePageDisplay": [
-			"MediaWiki\\Extension\\METADATA\\MW_EXT_URL::onBeforePageDisplay"
+			"MediaWiki\\Extension\\MetaStore\\MW_EXT_URL::onBeforePageDisplay"
 		]
 	},
 	"ExtensionMessagesFiles": {
